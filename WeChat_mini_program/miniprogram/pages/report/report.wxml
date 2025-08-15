@@ -1,0 +1,112 @@
+<image src="/miniprogram/pages/images/star.jpg" mode="aspectFill" class="page-bg"></image>
+<view class="container">
+  <!-- 日期选择器 -->
+  <view class="date-selector" bindtap="toggleCalendar">
+    <text>{{selectedDate}}</text>
+    <image src="/miniprogram/pages/images/日历 1.png" mode="aspectFit"></image>
+  </view>
+
+  <!-- 日历组件 -->
+  <view class="calendar-mask" wx:if="{{showCalendar}}" bindtap="toggleCalendar"></view>
+  <view class="calendar-container" wx:if="{{showCalendar}}">
+    <view class="calendar-header">
+      <text>选择日期</text>
+      <text class="close-btn" bindtap="toggleCalendar">×</text>
+    </view>
+    
+    <view class="weekdays">
+      <text wx:for="{{weekDays}}" wx:key="index">{{item}}</text>
+    </view>
+    
+    <view class="dates">
+      <view 
+        class="date-item {{item.isToday ? 'today' : ''}} {{selectedDate === item.date ? 'selected' : ''}}"
+        data-date="{{item.date}}"
+        bindtap="selectDate"
+        wx:for="{{calendarDates}}" 
+        wx:key="date"
+      >
+        <text>{{item.displayDate}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 睡眠评分 -->
+  <view class="sleep-card" wx:if="{{isDataLoaded}}">
+    <view class="score-container">
+      <view class="score-circle" >
+        <text class="score-value">{{sleepData.score}}</text>
+        <text class="score-text">睡眠评分</text>
+      </view>
+      
+      <view class="star-rating">
+        <image wx:for="{{starArray}}"
+          wx:key="index"
+          src="/miniprogram/pages/images/star-{{item}}.png" 
+          mode="aspectFit" 
+        ></image>
+      </view>
+    </view>
+    
+    <!-- 睡眠数据详情 -->
+    <view class="sleep-details">
+      <view class="detail-row">
+        <view class="detail-item">
+          <text class="item-title">深睡时长</text>
+          <text class="item-value">{{sleepData.deepSleep}}</text>
+        </view>
+        <view class="detail-item">
+          <text class="item-title">浅睡时长</text>
+          <text class="item-value">{{sleepData.lightSleep}}</text>
+        </view>
+      </view>
+      
+      <view class="detail-row">
+        <view class="detail-item">
+          <text class="item-title">REM时长</text>
+          <text class="item-value">{{sleepData.remSleep}}</text>
+        </view>
+        <view class="detail-item">
+          <text class="item-title">清醒时长</text>
+          <text class="item-value">{{sleepData.awake}}</text>
+        </view>
+      </view>
+      
+      <view class="detail-row time-row">
+        <view class="detail-item">
+          <text class="item-title">入睡时间</text>
+          <text class="item-value">{{sleepData.sleepTime}}</text>
+        </view>
+        <view class="detail-item">
+          <text class="item-title">起床时间</text>
+          <text class="item-value">{{sleepData.wakeTime}}</text>
+        </view>
+      </view>
+      <view class="detail-row">
+        <view class="detail-item">
+          <text class="item-title">打鼾时长</text>
+          <text class="item-value">{{sleepData.snoreTime}}</text>
+        </view>
+        <view class="detail-item">
+          <text class="item-title">体动次数</text>
+          <text class="item-value">{{sleepData.bodymove}}次</text>
+        </view>
+      </view>
+      <view class="detail-row">
+        <view class="detail-item">
+          <text class="item-title">平均心率</text>
+          <text class="item-value">{{sleepData.aveheartData}}次/分钟</text>
+        </view>
+        <view class="detail-item">
+          <text class="item-title">平均呼吸率</text>
+          <text class="item-value">{{sleepData.avebreathData}}次/分钟</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 加载状态 -->
+  <view class="loading" wx:if="{{!isDataLoaded}}">
+    <text>加载中...</text>
+  </view>
+</view>    

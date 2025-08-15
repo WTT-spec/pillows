@@ -1,0 +1,17 @@
+<view class="page-container">
+  <view class="section-title">设置</view>
+  <view class="setting-item">
+    <text class="setting-label">语言设置</text>
+    <picker mode="selector" range="{{languageList}}" bindchange="onLanguageChange">
+      <view class="picker-value">{{selectedLanguage}}</view>
+    </picker>
+  </view>
+  <view class="setting-item">
+    <text class="setting-label">通知开关</text>
+    <switch checked="{{isNotificationOn}}" bindchange="onNotificationChange" />
+  </view>
+  <view class="setting-item">
+    <text class="setting-label">数据同步</text>
+    <button bindtap="syncData" class="sync-button">立即同步</button>
+  </view>
+</view>

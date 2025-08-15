@@ -1,0 +1,130 @@
+/* 通用样式 */
+.page-bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.page-container {
+  position: relative;
+}
+
+swiper {
+  height: 350rpx;
+}
+
+swiper image {
+  width: 100%;
+  height: 100%;
+}
+
+.header-container{
+  background-color: #1C1B3B;
+  color: #fff;
+  border-radius: 36rpx;
+  /* padding: 32rpx 64rpx; */
+}
+.header-container .header-1{
+  display: flex;
+  justify-content: space-between;
+  font-size: 28rpx;
+}
+.header-container .header-2{
+  display: flex;
+  justify-content: space-between;
+  font-size: 64rpx;
+}
+.header-container .header-3{
+  margin-top: 36rpx;
+  font-size: 24rpx;
+}
+
+/* 数据项通用样式 */
+.data-container {
+  margin-top: 36rpx;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, 340rpx);
+  grid-gap: 36rpx;
+}
+
+.data-item {
+  position: relative;
+  background-color: #1C1B3B;
+  height: 180rpx;
+  box-shadow: #d6d6d6 0 0 8rpx;
+  border-radius: 36rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.data-item .data-text {
+  position: absolute;
+  top: 36rpx;
+  right: 24rpx;
+  text-align: right;  /* 文本右对齐 */
+  white-space: nowrap;   /* 禁止文本自动换行 */
+}
+
+.data-item .data-picture {
+  position:absolute;
+  height: 96rpx;
+  width: 96rpx;
+  left: 16rpx;    /* 图片和边框左边的距离 */
+  top: 16rpx;     /* 图片和边框上面的距离 */
+}
+
+.data-item .data-picture2 {
+  position:absolute;
+  height: 96rpx;
+  width: 96rpx;
+  left: 16rpx;    /* 图片和边框左边的距离 */
+  top: 24rpx;     /* 图片和边框上面的距离 */
+}
+
+.data-item .data-title {
+  font-size: 33rpx;
+  color: #dbd9d9;
+}
+
+.data-item .data-value {
+  font-size: 45rpx;    /* 字体大小 */
+  font-weight: bold;   /* 字体粗细 */
+  color: #cac8c8;
+  margin-top: 36rpx;   /* 字体和上边的距离 */
+}
+
+/* 特定数据项样式 */
+.height-control-container {
+  grid-template-columns: repeat(auto-fill, 635rpx);
+  margin-left: 350rpx;
+  display: grid;
+  justify-content: center;
+  grid-gap: 36rpx;
+}
+
+.height-control-container .data-item .data-text {
+  width: 80%;
+  text-align: center;
+}
+
+.data-image {
+  position:absolute;
+  height: 96rpx;
+  width: 96rpx;
+  left: 16rpx;    /* 图片和边框左边的距离 */
+  top: 44rpx;     /* 图片和边框上面的距离 */
+}
+
+.data-title-mode {
+  font-size: 33rpx;
+  color: #dbd9d9;
+  position: absolute;
+  top: 36rpx;
+  right: 0rpx;
+  text-align: right;  /* 文本右对齐 */
+  white-space: nowrap;   /* 禁止文本自动换行 */
+}

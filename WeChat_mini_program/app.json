@@ -1,0 +1,50 @@
+{
+  "pages": [
+    "miniprogram/pages/index/index",
+    "miniprogram/pages/line/line",
+    "miniprogram/pages/bindDevice/bindDevice",
+    "miniprogram/pages/home/home",
+    "miniprogram/pages/deviceInfo/deviceInfo",
+    "miniprogram/pages/settings/settings",
+    "miniprogram/pages/help/help",
+    "miniprogram/pages/feedback/feedback",
+    "miniprogram/pages/report/report",
+    "miniprogram/pages/pillowSet/pillowSet",
+    "miniprogram/pages/clockSet/clockSet"
+  ],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "睡眠监测",
+    "navigationBarBackgroundColor": "#021F59",
+    "enablePullDownRefresh": true,
+    "backgroundColor": "#efefef",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "backgroundColor": "#425A8A",
+    "list": [
+      {
+        "pagePath": "miniprogram/pages/index/index",
+        "text": "首页",
+        "iconPath": "/miniprogram/pages/images/home.png",
+        "selectedIconPath": "/miniprogram/pages/images/home_active.png"
+      },
+      {
+        "pagePath": "miniprogram/pages/line/line",
+        "text": "睡眠报告",
+        "iconPath": "/miniprogram/pages/images/line.png",
+        "selectedIconPath": "/miniprogram/pages/images/line_active.png"
+      },
+      {
+        "pagePath": "miniprogram/pages/home/home",
+        "text": "我的",
+        "iconPath": "/miniprogram/pages/images/my.png",
+        "selectedIconPath": "/miniprogram/pages/images/my-active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

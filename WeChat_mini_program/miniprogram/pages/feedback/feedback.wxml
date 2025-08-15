@@ -1,0 +1,5 @@
+<view class="page-container">
+  <view class="section-title">反馈</view>
+  <textarea placeholder="请输入你的反馈内容" bindinput="onFeedbackInput" value="{{feedbackContent}}" />
+  <button bindtap="submitFeedback" class="submit-button">提交反馈</button>
+</view>

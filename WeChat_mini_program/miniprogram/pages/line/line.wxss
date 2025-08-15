@@ -1,0 +1,219 @@
+.page-bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.3;
+}
+
+.main-container {
+  background-color: #1c1b3b; 
+   margin: 20rpx; 
+  border-radius: 24rpx;
+   padding: 20rpx; 
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+ec-canvas {
+  width: 100%;
+  height: 250px;
+}
+
+.titletext {
+  color: #ffffff;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 15rpx;
+}
+
+.chart-container {
+  display: flex;
+  border-radius: 16rpx;
+  background-color: #333251;
+  /* padding: 20rpx; */
+  height: 300px;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 20rpx;
+}
+
+.date {
+  text-align: center;
+  color: #ffffff;
+  font-size: 28rpx;
+  margin-bottom: 10rpx;
+}
+
+.sleep-period-title {
+  color: white;
+  font-size: 28rpx;
+  margin: 15rpx 0;
+}
+
+.sleep-period-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15rpx;
+}
+
+.sleep-period-item {
+  background-color: #333251;
+  width: 30%;
+  padding: 15rpx 0;
+  border-radius: 12rpx;
+  text-align: center;
+}
+
+.item-title {
+  display: flex;
+  color: #f0f1f3;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.textdata {
+  color: #f0f1f3;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.item-icon {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 8rpx;
+}
+
+.warning-list-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  font-size: 24rpx;
+  padding: 15rpx 0;
+}
+
+.toggle-icon {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.warning-list {
+  background-color: rgba(248, 242, 242, 0.1);
+  border-radius: 12rpx;
+  padding: 20rpx;
+  color: #ffffff;
+  font-size: 28rpx;
+  line-height: 1.6;
+}
+
+/* 睡眠分析样式 */
+.sleep-analysis {
+  margin: 20rpx;
+  padding: 20rpx;
+  background: #fff;
+  border-radius: 16rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+  color: #333;
+}
+
+.chart-container {
+  width: 100%;
+  height: 400rpx;
+}
+
+.sleep-stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 30rpx 0;
+}
+
+.stat-item {
+  width: 48%;
+  margin-bottom: 20rpx;
+}
+
+.stat-label {
+  font-size: 28rpx;
+  color: #666;
+  margin-right: 10rpx;
+}
+
+.stat-value {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.sleep-score {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  margin: 40rpx 0;
+}
+
+.score-title {
+  font-size: 32rpx;
+  color: #333;
+  margin-right: 15rpx;
+}
+
+.score-value {
+  font-size: 60rpx;
+  font-weight: bold;
+  color: #5470c6;
+}
+
+.score-percent {
+  font-size: 28rpx;
+  color: #999;
+}
+
+.score-details {
+  border-top: 1rpx solid #eee;
+  padding-top: 20rpx;
+}
+
+.details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15rpx 0;
+  font-size: 28rpx;
+  color: #666;
+}
+
+.toggle-icon {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.details-content {
+  padding: 10rpx 0;
+}
+
+.detail-item {
+  font-size: 26rpx;
+  color: #666;
+  padding: 10rpx 0;
+  border-bottom: 1rpx dashed #eee;
+}

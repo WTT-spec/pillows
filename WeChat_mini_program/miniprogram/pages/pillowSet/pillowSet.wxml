@@ -1,0 +1,180 @@
+<!--miniprogram/pages/pillowSet/pillowSet.wxml-->
+<image src="../images/star.jpg" mode="aspectFill" class="page-bg"></image>
+<view class="page-container">
+  <view class="data-container">
+    <view class="height-control-container">
+    <view class="data-item YW-head-height">
+      <image src="../images/气泵.png" class="data-picture"/>
+      <view class="data-text">
+        <view class="data-title">侧卧头窝区高度</view>
+        <view class="data-value">
+          <slider min="1" max="7" step="1" value="{{CW_head_height2}}" bindchange="onenet_set_device_property" data-param="height0_adjustment" show-value/>
+        </view>
+      </view>
+    </view>
+    <view class="data-item YW-neck-height">
+      <image src="../images/气泵.png" class="data-picture"/>
+      <view class="data-text">
+        <view class="data-title">仰卧头窝左区高度</view>
+        <view class="data-value">
+          <slider min="1" max="7" step="1" value="{{YW_left_height2}}" bindchange="onenet_set_device_property" data-param="height1_adjustment" show-value/>
+        </view>
+      </view>
+    </view>
+    <view class="data-item CW-head-height">
+      <image src="../images/气泵.png" class="data-picture"/>
+      <view class="data-text">
+        <view class="data-title">仰卧头窝右区高度</view>
+        <view class="data-value">
+          <slider min="1" max="7" step="1" value="{{YW_right_height2}}" bindchange="onenet_set_device_property" data-param="height2_adjustment" show-value/>
+        </view>
+      </view>
+    </view>
+    <view class="data-item CW-neck-height">
+      <image src="../images/气泵.png" class="data-picture"/>
+      <view class="data-text">
+        <view class="data-title">颈窝区高度</view>
+        <view class="data-value">
+          <slider min="1" max="7" step="1" value="{{neck_height2}}" bindchange="onenet_set_device_property" data-param="height3_adjustment" show-value/>
+        </view>
+      </view>
+    </view>
+  </view>
+  </view>
+  <view class="mode-container">
+  <!-- 模式选择按钮组 -->
+  <view class="mode-buttons">
+    <button 
+      class="mode-btn {{currentMode2 == 3 ? 'active' : ''}}" 
+      bindtap="selectMode" 
+      data-mode="3"
+    >
+      高度调节模式
+    </button>
+    <button 
+      class="mode-btn {{currentMode2 == 0 ? 'active' : ''}}" 
+      bindtap="selectMode" 
+      data-mode="0"
+    >
+      正常模式
+    </button>
+  </view>
+  <view class="mode-buttons">
+    <button 
+      class="mode-btn {{currentMode2 == 1 ? 'active' : ''}}" 
+      bindtap="selectMode" 
+      data-mode="1"
+    >
+      止鼾模式
+    </button>
+    <button 
+      class="mode-btn {{currentMode2 == 2 ? 'active' : ''}}" 
+      bindtap="selectMode" 
+      data-mode="2"
+    >
+      牵引按摩模式
+    </button>
+  </view>
+
+  <!-- 状态提示 -->
+  <view class="status-tip">
+    当前模式：{{currentMode2 == 0 ? '正常模式' : currentMode2 == 1 ? '止鼾模式' : currentMode2 == 2 ?'牵引按摩模式' : currentMode2 == 3 ?'高度调节模式' :'请选择模式'}}
+  </view>
+</view>
+ <!--止鼾转向控制 -->
+ <view class="data-container">
+  <view class="height-control-container">
+  <view class="data-item snoreturn">
+      <image src="../images/止鼾.png" class="data-picture" />
+      <view class="data-text">
+        <view class="data-title">止鼾枕头转向</view>
+        <view class="data-value">
+          <switch checked="{{snoreTurnFlag2}}" bindchange="onenet_set_device_property" data-param="snore_turn_flag" color="#3d77ff" />
+        </view>
+      </view>
+    </view> 
+    <!-- 状态提示 -->
+  <view class="status-tip">
+    当前止鼾模式转向选择为：{{snoreTurnFlag2? '左转':'右转'}}
+  </view>
+  </view>
+  </view>
+  <button 
+      class="mode-btn {{simulateflag2 == 1 ? 'active' : ''}}" 
+      bindtap="simulatesnore" 
+    >
+      模拟打鼾
+    </button>
+
+<!-- 睡姿偏好设置（修复参数名） -->
+<view class="preference-section-container">
+    <!-- 标题栏 -->
+    <view class="preference-header">
+      <text class="preference-title">睡姿偏好设置</text>
+      <text class="preference-subtitle">（仅正常模式生效）</text>
+    </view>
+
+    <!-- 仰睡偏好区域（一行两列） -->
+    <view class="preference-block">
+      <text class="block-title">仰睡偏好</text>
+      <view class="row-grid">
+        <!-- 左头窝高度 -->
+        <view class="grid-item">
+          <text class="label">左头窝</text>
+          <view class="control-group">
+            <button class="adjust-btn" bindtap="changePreference" data-type="ywLeftHeight" data-action="minus">-</button>
+            <text class="value">{{ywLeftHeight}}</text>
+            <button class="adjust-btn" bindtap="changePreference" data-type="ywLeftHeight" data-action="plus">+</button>
+          </view>
+        </view>
+        <!-- 右头窝高度 -->
+        <view class="grid-item">
+          <text class="label">右头窝</text>
+          <view class="control-group">
+            <button class="adjust-btn" bindtap="changePreference" data-type="ywRightHeight" data-action="minus">-</button>
+            <text class="value">{{ywRightHeight}}</text>
+            <button class="adjust-btn" bindtap="changePreference" data-type="ywRightHeight" data-action="plus">+</button>
+          </view>
+        </view>
+      </view>
+      <!-- 颈窝高度（单独一行） -->
+      <view class="grid-item full-width">
+        <text class="label">颈窝</text>
+        <view class="control-group">
+          <button class="adjust-btn" bindtap="changePreference" data-type="ywNeckHeight" data-action="minus">-</button>
+          <text class="value">{{ywNeckHeight}}</text>
+          <button class="adjust-btn" bindtap="changePreference" data-type="ywNeckHeight" data-action="plus">+</button>
+        </view>
+      </view>
+    </view>
+
+    <!-- 侧睡偏好区域（一行两列） -->
+    <view class="preference-block">
+      <text class="block-title">侧睡偏好</text>
+      <view class="row-grid">
+        <!-- 头窝高度 -->
+        <view class="grid-item">
+          <text class="label">头窝</text>
+          <view class="control-group">
+            <button class="adjust-btn" bindtap="changePreference" data-type="cwHeadHeight" data-action="minus">-</button>
+            <text class="value">{{cwHeadHeight}}</text>
+            <button class="adjust-btn" bindtap="changePreference" data-type="cwHeadHeight" data-action="plus">+</button>
+          </view>
+        </view>
+        <!-- 颈窝高度 -->
+        <view class="grid-item">
+          <text class="label">颈窝</text>
+          <view class="control-group">
+            <button class="adjust-btn" bindtap="changePreference" data-type="cwNeckHeight" data-action="minus">-</button>
+            <text class="value">{{cwNeckHeight}}</text>
+            <button class="adjust-btn" bindtap="changePreference" data-type="cwNeckHeight" data-action="plus">+</button>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 保存按钮 -->
+    <button class="save-button" bindtap="savePreferences">保存偏好设置</button>
+    <button class="save-button" bindtap="checkSleepPose0">发送偏好设置</button>
+  </view>
+</view>

@@ -1,0 +1,243 @@
+/* 页面背景 */
+.page-bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/* 容器样式 */
+.container {
+  padding: 20rpx;
+}
+
+.page-container {
+  position: relative;
+}
+
+.data-container {
+  margin-top: 36rpx;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, 340rpx);
+  grid-gap: 36rpx;
+}
+
+.data-item {
+  position: relative;
+  background-color: #1C1B3B;
+  height: 180rpx;
+  box-shadow: #d6d6d6 0 0 8rpx;
+  border-radius: 36rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.data-item .data-text {
+  position: absolute;
+  top: 36rpx;
+  right: 24rpx;
+  text-align: center;  /* 文本右对齐 */
+  white-space: nowrap;   /* 禁止文本自动换行 */
+}
+
+.data-item .data-picture {
+  position:absolute;
+  height: 125rpx;
+  width: 125rpx;
+  left: 16rpx;    /* 图片和边框左边的距离 */
+  top: 16rpx;     /* 图片和边框上面的距离 */
+}
+
+.data-item .data-title {
+  font-size: 33rpx;
+  color: #dbd9d9;
+}
+
+.data-item .data-value {
+  font-size: 45rpx;    /* 字体大小 */
+  font-weight: bold;   /* 字体粗细 */
+  color: #7f7f7f;
+  margin-top: 36rpx;   /* 字体和上边的距离 */
+}
+
+
+.height-control-container {
+  grid-template-columns: repeat(auto-fill, 635rpx);
+  margin-left: 350rpx;
+  display: grid;
+  justify-content: center;
+  grid-gap: 36rpx;
+}
+
+.height-control-container .data-item .data-text {
+  width: 80%;
+  text-align: center;
+}
+
+.status-tip {
+  text-align: center;
+  font-size: 28rpx;
+  color: #666666;
+  margin-top: 0rpx;
+}
+
+/* 震动控制样式 */
+.vibrate-control {
+  margin: 20rpx 0;
+  padding: 15rpx;
+  background-color: white;
+  border-radius: 16rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+
+.vibrate-toggle {
+  display: inline-flex;
+  background-color: #f5f5f5;
+  border-radius: 10rpx;
+  overflow: hidden;
+  margin-left: 20rpx;
+}
+
+.toggle-option {
+  width: 120rpx;
+  text-align: center;
+  padding: 10rpx 0;
+  font-size: 28rpx;
+  transition: all 0.3s;
+}
+
+.toggle-option.active {
+  background-color: #3d77ff;
+  color: white;
+}
+
+/* 添加闹钟按钮 */
+.add-alarm-btn {
+  background-color: #1C1B3B;
+  color: white;
+  width: 90%;
+  margin: 30rpx auto;
+  padding: 20rpx 0;
+  border-radius: 16rpx;
+  font-size: 34rpx;
+}
+
+/* 闹钟列表 */
+.alarm-list {
+  margin-top: 20rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}
+
+/* 闹钟项样式 */
+.alarm-item {
+  border-radius: 16rpx;
+  padding: 25rpx;
+  background-color: white;
+  box-shadow: #d6d6d6 0 0 8rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 闹钟时间 */
+.alarm-time {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+/* 闹钟状态 */
+.alarm-status {
+  display: flex;
+  align-items: center;
+}
+
+/* 操作按钮组 */
+.alarm-actions {
+  display: flex;
+  gap: 15rpx;
+}
+
+/* 编辑/删除按钮 */
+.action-btn {
+  width: 60rpx;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 24rpx;
+}
+
+.edit-btn {
+  background-color: #e8f4fd;
+  color: #3d77ff;
+}
+
+.delete-btn {
+  background-color: #fee;
+  color: #ff4d4f;
+}
+
+/* 时间选择器弹窗 */
+.time-picker-modal {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+  padding: 30rpx;
+}
+
+/* 弹窗标题 */
+.modal-title {
+  text-align: center;
+  font-size: 36rpx;
+  margin-bottom: 30rpx;
+  color: #333;
+}
+
+/* 时间选择器 */
+.time-picker {
+  width: 100%;
+  margin-bottom: 30rpx;
+}
+
+/* 弹窗按钮组 */
+.modal-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* 弹窗按钮 */
+.modal-btn {
+  width: 40%;
+  padding: 20rpx 0;
+  border-radius: 10rpx;
+  font-size: 32rpx;
+}
+
+.cancel-btn {
+  background-color: #f5f5f5;
+  color: #666;
+}
+
+.confirm-btn {
+  background-color: #3d77ff;
+  color: white;
+}
+
+/* 无闹钟提示 */
+.empty-tip {
+  text-align: center;
+  padding: 100rpx 0;
+  color: #999;
+  font-size: 32rpx;
+}

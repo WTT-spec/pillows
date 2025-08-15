@@ -1,0 +1,16 @@
+<view class="page-container">
+  <view class="section-title">使用指南</view>
+  <view class="guide-item">
+    <text class="guide-question">如何绑定设备？</text>
+    <text class="guide-answer">在“我的”页面点击“绑定设备”，按照提示操作即可。</text>
+  </view>
+  <view class="guide-item">
+    <text class="guide-question">如何查看睡眠数据？</text>
+    <text class="guide-answer">在“统计”页面可以查看睡眠数据。</text>
+  </view>
+  <view class="section-title">常见问题解答</view>
+  <view class="faq-item">
+    <text class="faq-question">设备离线怎么办？</text>
+    <text class="faq-answer">请检查设备电源和网络连接。</text>
+  </view>
+</view>

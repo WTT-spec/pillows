@@ -1,0 +1,28 @@
+.page-container {
+  background-color: #f5f5f5;
+  padding: 20rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+  color: #333333;
+}
+
+textarea {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  padding: 15rpx;
+  font-size: 28rpx;
+  border-radius: 10rpx;
+  margin-bottom: 30rpx;
+}
+
+.submit-button {
+  background-color: #3d77ff;
+  color: #ffffff;
+  font-size: 30rpx;
+  padding: 15rpx;
+  border-radius: 10rpx;
+}

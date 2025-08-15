@@ -1,0 +1,161 @@
+<image src="/miniprogram/pages/images/star.jpg" mode="aspectFill" class="page-bg"></image>
+
+<view class="sleep-analysis">
+  <view class="section-title">睡眠分析</view>
+  <!-- 睡眠饼图 -->
+  <view class="chart-container">
+    <ec-canvas id="pie-chart" canvas-id="pie-chart" ec="{{ecPie}}"></ec-canvas>
+  </view>
+  <!-- 睡眠数据统计 -->
+  <view class="sleep-stats">
+    <view class="stat-item">
+      <text class="stat-label">在床时长:</text>
+      <text class="stat-value">{{sleepData.inBedDuration}}</text>
+    </view>
+    <view class="stat-item">
+      <text class="stat-label">睡眠时长:</text>
+      <text class="stat-value">{{sleepData.sleepDuration}}</text>
+    </view>
+    <view class="stat-item">
+      <text class="stat-label">上床时间:</text>
+      <text class="stat-value">{{sleepData.bedTime}}</text>
+    </view>
+    <view class="stat-item">
+      <text class="stat-label">起床时间:</text>
+      <text class="stat-value">{{sleepData.wakeTime}}</text>
+    </view>
+  </view>
+  <!-- 睡眠评分 -->
+  <view class="sleep-score">
+    <text class="score-title">睡眠得分</text>
+    <text class="score-value">{{sleepScore}}</text>
+    <text class="score-percent">/100</text>
+  </view>
+  <!-- 得分详情 -->
+  <view class="score-details">
+    <view class="details-header" bindtap="toggleScoreDetails">
+      <text>得分详情</text>
+      <image 
+        src="{{isScoreDetailsExpanded ? '/miniprogram/pages/images/my-active.png' : '/miniprogram/pages/images/my.png'}}" 
+        mode="aspectFit"
+        class="toggle-icon"
+      ></image>
+    </view>
+    <view class="details-content" wx:if="{{isScoreDetailsExpanded}}">
+      <block wx:for="{{scoreDetails}}" wx:key="index">
+        <view class="detail-item">{{item}}</view>
+      </block>
+    </view>
+  </view>
+</view>
+
+<view class="sleep-analysis">
+  <view class="section-title">打鼾与体动</view>
+  <!-- 打鼾饼图 -->
+  <view class="chart-container">
+    <ec-canvas id="snore-chart" canvas-id="snore-chart" ec="{{ecPie}}"></ec-canvas>
+  </view>
+  <!-- 睡眠数据统计 -->
+  <view class="sleep-stats">
+    <view class="stat-item">
+      <text class="stat-label">打鼾时长:</text>
+      <text class="stat-value">{{snoreTime}}分钟</text>
+    </view>
+    <view class="stat-item">
+      <text class="stat-label">体动次数:</text>
+      <text class="stat-value">{{bodymove}}次</text>
+    </view> 
+  </view>
+</view>
+
+<!-- 心率模块 -->
+<view class="main-container">
+  <view class="header">
+    <image src="/miniprogram/pages/images/心率.png" class="icon" />
+    <text class="titletext">今日心率</text>
+  </view>
+  <view class="chart-container">
+    <text class="date">{{date}}</text>
+    <ec-canvas id="heart-chart" canvas-id="heart-canvas" ec="{{ ec }}"></ec-canvas>
+  </view>
+  <view class="sleep-period-title">睡眠期心率</view>
+  <view class="sleep-period-container">
+    <view class="sleep-period-item">
+      <view class="item-title">
+        <image src="/miniprogram/pages/images/心率.png" class="item-icon" />
+        <text>最快心率</text>
+      </view>
+      <text class="textdata">{{maxheartData}}次/分钟</text>
+    </view>
+    <view class="sleep-period-item">
+      <view class="item-title">
+        <image src="/miniprogram/pages/images/心率.png" class="item-icon" />
+        <text>最慢心率</text>
+      </view>
+      <text class="textdata">{{minheartData}}次/分钟</text>
+    </view>
+    <view class="sleep-period-item">
+      <view class="item-title">
+        <image src="/miniprogram/pages/images/心率.png" class="item-icon" />
+        <text>平均心率</text>
+      </view>
+      <text class="textdata">{{aveheartData}}次/分钟</text>
+    </view>
+  </view>
+</view>
+
+<!-- 呼吸率模块 -->
+<view class="main-container" style="margin-top: 20rpx;">
+  <view class="header">
+    <image src="/miniprogram/pages/images/呼吸率图标.png" class="icon" />
+    <text class="titletext">今日呼吸率</text>
+  </view>
+  <view class="chart-container">
+    <text class="date">{{date}}</text>
+    <ec-canvas id="breath-chart" canvas-id="breath-canvas" ec="{{ ec }}"></ec-canvas>
+  </view>
+  <view class="sleep-period-title">睡眠期呼吸率</view>
+  <view class="sleep-period-container">
+    <view class="sleep-period-item">
+      <view class="item-title">
+        <image src="/miniprogram/pages/images/呼吸率图标.png" class="item-icon" />
+        <text>最快呼吸</text>
+      </view>
+      <text class="textdata">{{maxbreathData}}次/分钟</text>
+    </view>
+    <view class="sleep-period-item">
+      <view class="item-title">
+        <image src="/miniprogram/pages/images/呼吸率图标.png" class="item-icon" />
+        <text>最慢呼吸</text>
+      </view>
+      <text class="textdata">{{minbreathData}}次/分钟</text>
+    </view>
+    <view class="sleep-period-item">
+      <view class="item-title">
+        <image src="/miniprogram/pages/images/呼吸率图标.png" class="item-icon" />
+        <text>平均呼吸</text>
+      </view>
+      <text class="textdata">{{avebreathData}}次/分钟</text>
+    </view>
+  </view>
+</view>
+
+<!-- 预警列表（共用） -->
+<view class="main-container" style="margin-top: 20rpx;">
+  <view class="warning-list-title" bindtap="toggleWarningList">
+    <text>健康预警列表</text>
+    <image src="{{isWarningListExpanded? '/miniprogram/pages/images/向下三角形蓝.png' : '/miniprogram/pages/images/向上三角形白.png'}}" class="toggle-icon" />
+  </view>
+  <view wx:if="{{isWarningListExpanded}}" class="warning-list">
+    <view wx:for="{{warningList}}" wx:key="index">{{item}}</view>
+  </view>
+</view>
+<view class="main-container" style="margin-top: 20rpx;">
+  <view class="warning-list-title" bindtap="toggleSuggestionList">
+    <text>AI睡眠建议</text>
+    <image src="{{isSuggestionListExpanded? '/miniprogram/pages/images/向下三角形蓝.png' : '/miniprogram/pages/images/向上三角形白.png'}}" class="toggle-icon" />
+  </view>
+  <view wx:if="{{isSuggestionListExpanded}}" class="warning-list">
+    <view wx:for="{{suggestions}}" wx:key="index">{{item}}</view>
+  </view>
+</view>

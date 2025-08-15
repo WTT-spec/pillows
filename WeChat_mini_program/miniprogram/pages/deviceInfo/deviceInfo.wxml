@@ -1,0 +1,17 @@
+<view class="page-container">
+  <view class="section-title">设备信息</view>
+  <view class="info-item">
+    <text class="info-label">设备名称:</text>
+    <text class="info-value">{{deviceInfo.device_name}}</text>
+  </view>
+  <view class="info-item">
+    <text class="info-label">产品ID:</text>
+    <text class="info-value">{{deviceInfo.product_id}}</text>
+  </view>
+  <view class="info-item">
+    <text class="info-label">设备状态:</text>
+    <text class="info-value" wx:if="{{deviceInfo.status === 1}}" style="color:lightgreen;">在线</text>
+    <text class="info-value" wx:else style="color: red;">离线</text>
+  </view>
+  <button bindtap="unbindDevice" class="unbind-button">解绑设备</button>
+</view>

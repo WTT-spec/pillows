@@ -1,0 +1,221 @@
+.page-bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.container {
+  padding: 20rpx;
+}
+
+.date-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+  margin-bottom: 20rpx;
+  font-size: 32rpx;
+  color: rgb(255, 251, 251);
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.date-selector text {
+  margin-right: 10rpx;
+}
+
+.date-selector image {
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.calendar-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+.calendar-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border-radius: 24rpx 24rpx 0 0;
+  z-index: 101;
+  padding: 30rpx 0;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30rpx 20rpx;
+  border-bottom: 1rpx solid #EEEEEE;
+}
+
+.calendar-header text {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: rgb(22, 21, 21);
+}
+
+.calendar-header .close-btn {
+  font-size: 40rpx;
+  color: #999;
+}
+
+.weekdays {
+  display: flex;
+  padding: 20rpx 30rpx;
+}
+
+.weekdays text {
+  flex: 1;
+  text-align: center;
+  font-size: 28rpx;
+  color: #666;
+}
+
+.dates {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 30rpx 20rpx;
+}
+
+.date-item {
+  width: 14.28%;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10rpx;
+}
+
+.date-item text {
+  width: 60rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 28rpx;
+}
+
+.date-item.selected text {
+  background-color: #36D399;
+  color: white;
+}
+
+.date-item.today text {
+  border: 1rpx solid #36D399;
+  color: #36D399;
+}
+
+.sleep-card {
+  border-radius: 24rpx;
+  width: 100%;
+  overflow: hidden;
+  padding-bottom: 30rpx;
+}
+
+.score-container {
+  padding: 40rpx 0;
+  display: flex;
+  height: 300rpx;
+  flex-direction: column;
+  align-items: center;
+  background: #1d2b57;
+  margin-bottom: 50rpx;
+}
+
+.score-circle {
+  width: 260rpx;
+  height: 260rpx;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-width: 6rpx;
+  border-style:groove;
+  margin-bottom: 20rpx;
+  background-color: rgb(23, 43, 88);
+}
+
+.score-value {
+  font-size: 72rpx;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.score-text {
+  font-size: 24rpx;
+  color: #ffffff;
+}
+
+.star-rating {
+  display: flex;
+  width: 250rpx;
+  justify-content: space-between;
+}
+
+.star-rating image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.sleep-details {
+  padding: 0 30rpx;
+}
+
+.detail-row {
+  display: flex;
+  margin-bottom: 25rpx;
+}
+
+.time-row {
+  margin-bottom: 0;
+}
+
+.detail-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 1px solid #e0e0e0;
+}
+
+.item-title {
+  margin-top: 20rpx;
+  font-size: 26rpx;
+  color: #ffffff;
+  margin-bottom: 8rpx;
+}
+
+.item-value {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.loading {
+  height: 300rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 16rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.loading text {
+  font-size: 32rpx;
+  color: #ffffff;
+}    

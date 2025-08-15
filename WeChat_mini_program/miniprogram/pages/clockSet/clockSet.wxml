@@ -1,0 +1,84 @@
+<image src="../images/star.jpg" mode="aspectFill" class="page-bg"></image>
+<view class="page-container">
+  <!-- 震动状态显示和控制 -->
+  <view class="data-container">
+  <view class="height-control-container">
+  <view class="data-item clockon">
+      <image src="../images/闹钟2.png" class="data-picture" />
+      <view class="data-text">
+        <view class="data-title">闹钟状态</view>
+        <view class="data-value">
+          <switch checked="{{vibrateStatus}}" bindchange="toggleVibrateStatus" data-param="clock_on" color="#3d77ff" />
+        </view>
+      </view>
+    </view> 
+<view class="container">
+    <!-- 状态提示 -->
+  <view class="status-tip">
+    闹钟震动{{vibrateStatus? '开启':'关闭'}}
+  </view>
+  </view>
+  </view>
+</view>
+  <!-- 闹钟列表 -->
+  <view class="alarm-list">
+    <view wx:for="{{alarms}}" wx:key="{{item._id}}" class="alarm-item">
+      <view class="alarm-time">{{item.time}}</view>
+      <view class="alarm-status">
+        <switch 
+          checked="{{item.enabled}}" 
+          bindchange="toggleAlarm" 
+          data-id="{{item._id}}"
+          color="#3d77ff"
+        />
+      </view>
+      <view class="alarm-actions">
+        <view 
+          class="action-btn edit-btn" 
+          bindtap="editAlarm" 
+          data-id="{{item._id}}"
+        >
+          编辑
+        </view>
+        <view 
+          class="action-btn delete-btn" 
+          bindtap="deleteAlarm" 
+          data-id="{{item._id}}"
+        >
+          删除
+        </view>
+      </view>
+    </view>
+
+    <!-- 无闹钟提示 -->
+    <view wx:if="{{alarms.length === 0}}" class="empty-tip">
+      暂无设置的闹钟，点击下方按钮添加
+    </view>
+  </view>
+
+  <!-- 添加闹钟按钮 -->
+  <button class="add-alarm-btn" bindtap="showTimePicker" type="primary">添加闹钟</button>
+
+  <!-- 时间选择器弹窗 -->
+  <view wx:if="{{showPicker}}" class="time-picker-modal">
+    <view class="modal-title">{{isEditing ? '编辑闹钟' : '设置闹钟时间'}}</view>
+    <picker-view 
+      class="time-picker"
+      value="{{timeValue}}" 
+      indicator-style="height: 80rpx;"
+      style="width: 100%; height: 300rpx;"
+      bindchange="onTimeChange"
+    >
+      <picker-view-column>
+        <view wx:for="{{hours}}" wx:key="{{index}}" style="height: 80rpx; text-align: center;">{{item}}时</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{minutes}}" wx:key="{{index}}" style="height: 80rpx; text-align: center;">{{item}}分</view>
+      </picker-view-column>
+    </picker-view>
+    <view class="modal-buttons">
+      <button class="modal-btn cancel-btn" bindtap="hideTimePicker">取消</button>
+      <button class="modal-btn confirm-btn" bindtap="confirmTime">确认</button>
+    </view>
+  </view>
+</view> 

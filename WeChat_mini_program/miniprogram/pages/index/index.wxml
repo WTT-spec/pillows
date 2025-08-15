@@ -1,0 +1,95 @@
+<!-- index.wxml -->
+<image src="../images/star.jpg" mode="aspectFill" class="page-bg"></image>
+<view class="page-container">
+
+<view class="header-container">
+<swiper indicator-dots circular indicator-active-color="white" indicator-color="black">
+  <swiper-item wx:for="{{swiperList}}" wx:key="id">
+    <image src="{{item.image}}"></image>
+  </swiper-item>
+</swiper>
+</view>
+
+  <view class="data-container">
+    <!-- 数据项：设备状态 -->
+    <view class="data-item device-status">
+      <image src="../images/设备状态.png" class="data-picture" />
+      <view class="data-text">
+        <view class="data-title">设备状态</view>
+        <view class="data-value" wx:if="{{device_status_flag == 1}}" style="color:lightgreen;">在线</view>
+        <view class="data-value" wx:elif="{{device_status_flag != 1}}" style="color: red;">离线</view>
+      </view>
+    </view>
+    <view class="data-item inbed-status">
+      <image src="../images/在床.png" class="data-picture" />
+      <view class="data-text">
+    <view class="data-title">在床状态</view>
+    <view class="data-value" wx:if="{{device_status.data && device_status.data.list && device_status.data.list[0] && device_status.data.list[0].status != 1}}">未知</view>
+    <view class="data-value" wx:elif="{{Inbed}}" style="color:lightgreen;">在床</view>
+    <view class="data-value" wx:else style="color: rgb(241, 12, 12);">离床</view>
+  </view>
+</view>
+    
+    <view class="data-item HeartRate">
+      <image src="../images/心率.png" class="data-picture" />
+      <view class="data-text">
+        <view class="data-title">心率</view>
+        <view class="data-value" wx:if="{{device_status.data && device_status.data.list && device_status.data.list[0] && device_status.data.list[0].status != 1}}">未知</view>
+        <view class="data-value" wx:elif="{{onenet_data.data && onenet_data.data[2]}}">{{onenet_data.data[2].value}}次/分钟</view>
+        <view class="data-value" wx:else>未获取</view>
+      </view>
+    </view>
+    <view class="data-item breathRate">
+      <image src="../images/呼吸率图标.png" class="data-picture" />
+      <view class="data-text">
+        <view class="data-title">呼吸率</view>
+        <view class="data-value" wx:if="{{device_status.data && device_status.data.list && device_status.data.list[0] && device_status.data.list[0].status != 1}}">未知</view>
+        <view class="data-value" wx:elif="{{onenet_data.data && onenet_data.data[3]}}">{{onenet_data.data[3].value}}次/分钟</view>
+        <view class="data-value" wx:else>未获取</view>
+      </view>
+    </view>
+    <view class="data-item snore">
+      <image src="../images/打鼾2.png" class="data-picture" />
+      <view class="data-text">
+        <view class="data-title">打鼾状态</view>
+        <view class="data-value" wx:if="{{device_status.data && device_status.data.list && device_status.data.list[0] && device_status.data.list[0].status != 1}}">未知</view>
+        <view class="data-value" wx:elif="{{snore}}">打鼾中</view>
+        <view class="data-value" wx:else>未打鼾</view>
+      </view>
+    </view>
+  <view class="data-item sleeppose">
+    <image src="../images/睡姿.png" class="data-picture2" />
+    <view class="data-text">
+      <view class="data-title">睡姿识别</view>
+      <!-- 修复双引号转义问题，并优化条件判断 -->
+      <view class="data-value" wx:if="{{device_status.data && device_status.data.list && device_status.data.list[0] && device_status.data.list[0].status != 1 }}">未知</view>
+      <view class="data-value" wx:elif="{{Inbed && sleeppose == 1}}">仰睡</view>
+      <view class="data-value" wx:elif="{{Inbed && sleeppose == 2}}">侧睡</view>
+      <view class="data-value" wx:else>未知</view>
+    </view>
+  </view>
+    <view class="data-item height" bind:tap="navigateTopillowSet">
+      <image src="../images/模式设置.png" class="data-image" />
+      <view class="data-text">
+        <view class="data-title-mode">模式高度设置</view>
+      </view>
+    </view>
+    <view class="data-item clock" bind:tap="navigateToclockSet">
+      <image src="../images/闹钟1.png" class="data-image" />
+      <view class="data-text">
+        <view class="data-title-mode">设定闹钟</view>
+      </view>
+    </view>
+    <!-- 气泵开关控制 -->
+    <!-- <view class="data-item humidifier-switch">
+      <image src="../images/气泵.png" class="data-picture" />
+      <view class="data-text">
+        <view class="data-title">气泵开关</view>
+        <view class="data-value">
+          <switch checked="{{switch1_checked}}" bindchange="onenet_set_device_property" data-param="AirPump" color="#3d77ff" />
+        </view>
+      </view>
+    </view> -->
+
+  </view>
+</view>

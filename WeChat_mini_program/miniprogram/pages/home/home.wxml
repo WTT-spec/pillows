@@ -1,0 +1,71 @@
+<!-- my.wxml -->
+<image src="/miniprogram/pages/images/star.jpg" mode="aspectFill" class="page-bg"></image>
+<view class="page-container">
+  <!-- 用户信息卡片 -->
+  <view class="user-card">
+    <image class="avatar" src="{{userInfo.avatarUrl || '/miniprogram/pages/images/用户头像.png'}}" mode="aspectFill"></image>
+    <view class="user-info">
+      <text class="nickname">{{userInfo.nickName || '睡眠守护者'}}</text>
+      <view class="stats">
+        <text>监测天数: {{summaryData.days}}天</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 设备管理 -->
+  <view class="section device-management">
+    <view class="section-title">设备管理</view>
+    <view class="device-item" bindtap="navigateToBindDevice">
+      <text class="device-label">绑定设备</text>
+      <image src="/miniprogram/pages/images/绑定设备1.png" class="device-icon" />
+    </view>
+    <view class="device-item" bindtap="navigateToDeviceInfo">
+      <text class="device-label">设备信息</text>
+      <image src="/miniprogram/pages/images/设备信息1.png" class="device-icon" />
+    </view>
+  </view>
+
+  <!-- 设置  -->
+ <!--  <view class="section settings">
+    <view class="section-title">设置</view>
+    <view class="setting-item" bindtap="navigateToSettings">
+      <text class="setting-label">应用设置</text>
+      <image src="/miniprogram/pages/images/应用设置 1.png" class="setting-icon" />
+    </view>
+  </view> -->
+
+  <!-- 报告  -->
+  <view class="section report">
+    <view class="section-title">报告查询</view>
+    <view class="report-item" bindtap="navigateToreport">
+      <text class="report-label">往日报告</text>
+      <image src="/miniprogram/pages/images/应用设置 1.png" class="report-icon" />
+    </view>
+  </view>
+  
+  <!-- 帮助与反馈 -->
+  <view class="section help-feedback">
+    <view class="section-title">帮助与反馈</view>
+    <view class="help-item" bindtap="navigateToHelp">
+      <text class="help-label">使用指南</text>
+      <image src="/miniprogram/pages/images/使用指南 (1).png" class="help-icon" />
+    </view>
+    <view class="help-item" bindtap="navigateToFeedback">
+      <text class="help-label">反馈</text>
+      <image src="/miniprogram/pages/images/问题反馈.png" class="help-icon" />
+    </view>
+  </view>
+
+  <!-- 关于 -->
+  <view class="section about">
+    <view class="section-title">关于</view>
+    <view class="about-item">
+      <text class="about-label">版本:</text>
+      <text class="about-value">{{appVersion}}</text>
+    </view>
+    <view class="about-item">
+      <text class="about-label">开发者:</text>
+      <text class="about-value">{{developer}}</text>
+    </view>
+  </view>
+</view>

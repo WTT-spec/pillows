@@ -1,0 +1,25 @@
+<!--pages/bindDevice/bindDevice.wxml-->
+<view class="container">
+  <view class="form">
+    <view class="form-item">
+      <text class="label">设备号：</text>
+      <input 
+        type="text" 
+        placeholder="请输入设备号" 
+        bindinput="onDeviceIdInput"
+        value="{{deviceId}}"
+      />
+    </view>
+    <view class="form-item">
+      <text class="label">设备密码：</text>
+      <input 
+        type="password" 
+        placeholder="请输入设备密码" 
+        bindinput="onDevicePasswordInput"
+        value="{{devicePassword}}"
+      />
+    </view>
+    <button type="primary" bindtap="onBind">绑定设备</button>
+    <text class="error-msg">{{errorMsg}}</text>
+  </view>
+</view>
